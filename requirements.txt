@@ -1,0 +1,9 @@
+streamlit==1.25.0
+pandas==2.1.1
+plotly==5.17.0
+openai==0.11.6
+requests==2.31.0
+textblob==0.17.1
+wordcloud==1.8.2.2
+matplotlib==3.7.2
+yfinance==0.2.31
