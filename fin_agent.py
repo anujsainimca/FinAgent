@@ -153,7 +153,7 @@ if chatgpt_api_key and stock_symbol:
     if st.button("Predict Future Stock Performance Using GPT-3"):
         system_prompt = f"You are a financial Analyst."
         prompt = f"Based on the given financial news and stock data, predict the future performance of {stock_symbol} stock. Give a structured heading and description based response. Here are the news: {str(headlines)}. Also use the latest stock prices to get some predictions. {str(stock_data)}"
-        completion = openai.ChatCompletion.create(
+        completion = openai.chat.completions.create(
             model=selected_model,  # Adjust the model as needed
             messages=[
                 {"role": "system", "content": system_prompt},
@@ -162,5 +162,5 @@ if chatgpt_api_key and stock_symbol:
         )
         
         # Extract and print the response
-        prediction = completion.choices[0].message['content']
+        prediction = completion.choices[0].message.content
         st.markdown(f"<div class='prediction-box'><h3>ChatGPT Prediction for {stock_symbol}</h3><p>{prediction}</p></div>", unsafe_allow_html=True)
